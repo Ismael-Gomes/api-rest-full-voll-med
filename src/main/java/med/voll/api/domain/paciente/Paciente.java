@@ -2,6 +2,8 @@ package med.voll.api.domain.paciente;
 
 import jakarta.persistence.*;
 import lombok.*;
+import med.voll.api.domain.endereco.Endereco;
+
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
 @Getter
@@ -16,6 +18,8 @@ public class Paciente {
     private String telefone;
     private String cpf;
 
+    @Embedded
+    private Endereco endereco;
 
     private Boolean ativo;
 
