@@ -48,4 +48,11 @@ public class MedicoController {
         return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity inativar(@PathVariable Long id){
+        var medico = medicoRepository.getReferenceById(id);
+        medico.inativar();
+        return ResponseEntity.noContent().build();
+    }
 }
